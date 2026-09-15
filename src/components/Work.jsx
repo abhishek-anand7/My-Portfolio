@@ -5,8 +5,8 @@ const projects = [
     description:
       "A full-stack application for tracking job applications using a Kanban-style workflow, authentication and MongoDB.",
     stack: "Next.js, React, JavaScript, MongoDB",
-    github: "https://github.com/yourusername/job-application-tracker",
-    demo: "https://your-job-tracker.vercel.app",
+    github: "https://github.com/abhishek-anand7/Job-Application-Tracker",
+    demo: "https://job-application-tracker-ochre-five.vercel.app/",
   },
   {
     title: "Focus Mode Extension",
@@ -16,24 +16,6 @@ const projects = [
     stack: "JavaScript, HTML, CSS",
     github: "https://github.com/yourusername/focus-mode-extension",
     demo: "https://your-focus-mode-demo.com",
-  },
-  {
-    title: "Project Three",
-    year: "2026",
-    description:
-      "A modern web application built to solve a practical problem with a clean and responsive interface.",
-    stack: "React, JavaScript, Tailwind CSS",
-    github: "https://github.com/yourusername/project-three",
-    demo: "https://project-three.vercel.app",
-  },
-  {
-    title: "Project Four",
-    year: "2026",
-    description:
-      "A full-stack project demonstrating API development, database integration and authentication.",
-    stack: "Node.js, Express.js, MongoDB",
-    github: "https://github.com/yourusername/project-four",
-    demo: "https://project-four.vercel.app",
   },
 ];
 
