@@ -1,15 +1,12 @@
+
+
 function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="wrap">
-        <h2 className="contact-title">
-          Let's talk.
-        </h2>
+        <h2 className="contact-title">Let's talk.</h2>
 
-        <a
-          className="email-link"
-          href="mailto:your@email.com"
-        >
+        <a className="email-link" href="mailto:your@email.com">
           ab.work2103@gmail.com
         </a>
 
@@ -30,7 +27,7 @@ function Contact() {
             LinkedIn
           </a>
 
-          <a href="/resume.pdf">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             Resume
           </a>
         </div>
