@@ -4,7 +4,7 @@ const projects = [
     year: "2026",
     description:
       "A full-stack application for tracking job applications using a Kanban-style workflow, authentication and MongoDB.",
-    stack: "Next.js, React, JavaScript, MongoDB",
+    stack: "Next.js, React, TypeScript, MongoDB",
     github: "https://github.com/abhishek-anand7/Job-Application-Tracker",
     demo: "https://job-application-tracker-ochre-five.vercel.app/",
   },
@@ -23,7 +23,7 @@ function Work() {
   return (
     <section id="work">
       <div className="wrap">
-        <h2 className="section-title">selected work</h2>
+        <h2 className="section-title">Selected Work</h2>
 
         <div>
           {projects.map((project) => (

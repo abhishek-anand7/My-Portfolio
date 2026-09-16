@@ -5,9 +5,9 @@ function Navbar() {
         <div className="brand">Abhishek Anand</div>
 
         <div className="navlinks">
-          <a href="#work">work</a>
-          <a href="#about">about</a>
-          <a href="#contact">contact</a>
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
     </nav>

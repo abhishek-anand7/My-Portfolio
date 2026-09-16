@@ -287,6 +287,11 @@ h2.section-title {
   gap: 48px;
 }
 
+.about-skills {
+  border-left: 1px solid var(--line);
+  padding-left: 48px;
+}
+
 .about-bio p {
   max-width: 54ch;
   margin: 0 0 16px;
@@ -389,6 +394,11 @@ a:focus-visible {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 8px;
+  }
+
+  .about-skills {
+    border-left: none;
+    padding-left: 0;
   }
 
   .project-head {

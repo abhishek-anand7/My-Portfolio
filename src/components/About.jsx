@@ -2,7 +2,7 @@ function About() {
   return (
     <section id="about">
       <div className="wrap">
-        <h2 className="section-title">about</h2>
+        <h2 className="section-title">About</h2>
 
         <div className="about-grid">
           <div className="about-bio">
@@ -21,21 +21,21 @@ function About() {
 
           <div className="about-skills">
             <div className="skill-group">
-              <h3>frontend</h3>
+              <h3>Frontend</h3>
               <p>
                 HTML, CSS, JavaScript, React, Next.js, Tailwind CSS
               </p>
             </div>
 
             <div className="skill-group">
-              <h3>backend</h3>
+              <h3>Backend</h3>
               <p>
                 Node.js, Express.js, MongoDB, REST APIs
               </p>
             </div>
 
             <div className="skill-group">
-              <h3>tools</h3>
+              <h3>Tools</h3>
               <p>
                 Git, GitHub, VS Code, Vercel, Postman
               </p>
