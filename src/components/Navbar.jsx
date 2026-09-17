@@ -1,4 +1,4 @@
-function Navbar() {
+function Navbar({ darkMode, setDarkMode }) {
   return (
     <nav className="top">
       <div className="wrap">
@@ -11,6 +11,14 @@ function Navbar() {
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             Resume
           </a>
+
+          <button
+            className="theme-toggle"
+            onClick={() => setDarkMode(!darkMode)}
+            aria-label="Toggle dark mode"
+          >
+            {darkMode ? "☀ light" : "☾ dark"}
+          </button>
         </div>
       </div>
     </nav>

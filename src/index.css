@@ -13,6 +13,15 @@
   --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
 }
 
+.dark {
+  --bg: #111111;
+  --bg-raised: #1a1a1a;
+  --ink: #f2f0eb;
+  --muted: #a5a29b;
+  --accent: #e06a45;
+  --line: #333333;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -69,6 +78,22 @@ nav.top .wrap {
   font-family: var(--mono);
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+.theme-toggle {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  padding: 6px 10px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .navlinks a {
@@ -419,4 +444,14 @@ a:focus-visible {
   html {
     scroll-behavior: auto;
   }
+}
+
+body,
+.theme-toggle,
+.project,
+.about-skills {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
 }
