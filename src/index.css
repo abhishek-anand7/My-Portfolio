@@ -68,7 +68,7 @@ nav.top .wrap {
 
 .brand {
   font-family: var(--mono);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--ink);
 }
 
@@ -81,19 +81,22 @@ nav.top .wrap {
 }
 
 .theme-toggle {
-  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
   background: transparent;
   color: var(--ink);
-  padding: 6px 10px;
-  font-family: var(--mono);
-  font-size: 0.75rem;
+
+  padding: 4px;
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  transition: color 0.2s ease;
 }
 
 .theme-toggle:hover {
   color: var(--accent);
-  border-color: var(--accent);
 }
 
 .navlinks a {

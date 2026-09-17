@@ -1,3 +1,5 @@
+import { Moon, Sun } from "lucide-react";
+
 function Navbar({ darkMode, setDarkMode }) {
   return (
     <nav className="top">
@@ -15,9 +17,12 @@ function Navbar({ darkMode, setDarkMode }) {
           <button
             className="theme-toggle"
             onClick={() => setDarkMode(!darkMode)}
-            aria-label="Toggle dark mode"
+            aria-label={
+              darkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
+            title={darkMode ? "Light mode" : "Dark mode"}
           >
-            {darkMode ? "☀ light" : "☾ dark"}
+            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
       </div>
