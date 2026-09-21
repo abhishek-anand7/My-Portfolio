@@ -8,10 +8,14 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem("theme");
+    return savedMode === "dark";
+  });
 
   useEffect(() => {
     document.body.classList.toggle("dark", darkMode);
+    localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   return (
