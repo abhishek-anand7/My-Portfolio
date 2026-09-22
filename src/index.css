@@ -141,6 +141,10 @@ nav.top .wrap {
   cursor: pointer;
 }
 
+.menu-toggle:hover {
+  color: var(--accent);
+}
+
 .mobile-menu {
   display: none;
   position: absolute;
