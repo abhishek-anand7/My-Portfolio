@@ -58,20 +58,22 @@ nav.top {
   padding: 36px 0 12px;
   position: sticky;
   top: 0;
-  z-index: 1000;
-
-  background: rgba(250, 250, 247, 0.7);
-
+  z-index: 1000; 
+  
+  /* Semi-transparent background */
+  background: color-mix(
+    in srgb,
+    var(--bg) 95%,
+    transparent
+  ); 
+  
+  /* Glass/floating effect */
   backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px); 
 
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease;
-}
-
-.dark nav.top {
-  background: rgba(17, 17, 17, 0.55);
 }
 
 nav.top .wrap {
