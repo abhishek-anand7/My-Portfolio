@@ -63,7 +63,7 @@ nav.top {
   /* Semi-transparent background */
   background: color-mix(
     in srgb,
-    var(--bg) 85%,
+    var(--bg) 55%,
     transparent
   ); 
   
