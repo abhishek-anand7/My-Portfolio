@@ -55,12 +55,25 @@ a {
 /* ==== NAVBAR ==== */
 
 nav.top {
-  padding: 32px 0 12px;
+  padding: 36px 0 12px;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  background: var(--bg);
-  /* border-bottom: 1px solid var(--line); */
+  z-index: 1000; 
+  
+  /* Semi-transparent background */
+  background: color-mix(
+    in srgb,
+    var(--bg) 85%,
+    transparent
+  ); 
+  
+  /* Glass/floating effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
 }
 
 nav.top .wrap {
@@ -184,7 +197,7 @@ nav.top .wrap {
 /* ==== HERO ==== */
 
 header.hero {
-  padding: 96px 0 110px;
+  padding: 80px 0 110px;
 }
 
 .hero-content {
@@ -463,6 +476,43 @@ footer {
   color: var(--muted);
 }
 
+/* ==== BACK TO TOP BUTTON ==== */
+
+.back-to-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+
+  width: 50px;
+  height: 50px;
+
+  border: 1px solid var(--line);
+  border-radius: 50%;
+
+  background: var(--bg);
+  color: var(--ink);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  background: var(--bg-raised);
+  border-color: var(--accent);
+}
+
 /* ==== FOCUS ==== */
 
 a:focus-visible {
@@ -526,6 +576,13 @@ a:focus-visible {
   .project-head {
     flex-direction: column;
     gap: 4px;
+  }
+
+  .back-to-top {
+    right: 20px;
+    bottom: 20px;
+    width: 45px;
+    height: 45px;
   }
 }
 

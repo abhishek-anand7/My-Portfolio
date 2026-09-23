@@ -6,6 +6,7 @@ import Work from "./components/Work";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -26,6 +27,7 @@ function App() {
       <About />
       <Contact />
       <Footer />
+      <BackToTop />
     </div>
   );
 }
