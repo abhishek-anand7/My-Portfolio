@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import CursorSpotlight from "./components/CursorSpotlight";
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
+      <CursorSpotlight />
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Hero />
       <Work />
