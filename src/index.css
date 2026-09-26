@@ -308,6 +308,29 @@ nav.top .wrap {
   padding-left: 18px;
 }
 
+/* ==== SCROLL PROGRESS ==== */
+
+.scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.scroll-progress-bar {
+  width: 0;
+  height: 100%;
+
+  background: var(--accent);
+
+  box-shadow: 0 0 8px var(--accent);
+}
+
 /* ==== HERO ==== */
 
 header.hero {

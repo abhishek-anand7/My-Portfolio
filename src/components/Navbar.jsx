@@ -1,8 +1,27 @@
 import { Moon, Sun, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Navbar({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Scroll progress
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const documentHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress =
+        documentHeight > 0 ? (scrollTop / documentHeight) * 100 : 0;
+      setScrollProgress(progress);
+    };
+    window.addEventListener("scroll", handleScroll);
+    // Set initial value
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleTheme = (event) => {
     const button = event.currentTarget;
@@ -32,11 +51,11 @@ function Navbar({ darkMode, setDarkMode }) {
     transition.ready.then(() => {
       document.documentElement.animate(
         [
-          { 
-            clipPath: `circle(0px at ${x}px ${y}px)` 
+          {
+            clipPath: `circle(0px at ${x}px ${y}px)`,
           },
-          { 
-            clipPath: `circle(${radius}px at ${x}px ${y}px)` 
+          {
+            clipPath: `circle(${radius}px at ${x}px ${y}px)`,
           },
         ],
         {
@@ -107,7 +126,6 @@ function Navbar({ darkMode, setDarkMode }) {
           </button>
         </div>
       </div>
-
       {/* Mobile navigation */}
       <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
         <a href="#work" onClick={closeMenu}>
@@ -130,6 +148,14 @@ function Navbar({ darkMode, setDarkMode }) {
         >
           Resume
         </a>
+      </div>
+      
+      {/* Scroll progress indicator */}
+      <div className="scroll-progress">
+        <div
+          className="scroll-progress-bar"
+          style={{ width: `${scrollProgress}%` }}
+        />
       </div>
     </nav>
   );
