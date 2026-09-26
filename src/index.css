@@ -11,8 +11,18 @@
   --serif: "Fraunces", Georgia, serif;
   --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+
   --mouse-x: 50vw;
   --mouse-y: 50vh;
+
+  /* Theme transition */
+  --theme-transition: 0.4s ease;
+
+  /* Cursor spotlight */
+  --spotlight-1: rgba(176, 71, 44, 0.1);
+  --spotlight-2: rgba(176, 71, 44, 0.055);
+  --spotlight-3: rgba(176, 71, 44, 0.025);
+  --spotlight-4: rgba(176, 71, 44, 0.012);
 }
 
 .dark {
@@ -22,6 +32,12 @@
   --muted: #a5a29b;
   --accent: #e06a45;
   --line: #333333;
+
+  /* Cursor spotlight */
+  --spotlight-1: rgba(56, 189, 248, 0.12);
+  --spotlight-2: rgba(56, 189, 248, 0.07);
+  --spotlight-3: rgba(56, 189, 248, 0.035);
+  --spotlight-4: rgba(56, 189, 248, 0.015);
 }
 
 * {
@@ -30,6 +46,13 @@
 
 html {
   scroll-behavior: smooth;
+
+  background: var(--bg);
+  color: var(--ink);
+
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 body {
@@ -40,6 +63,10 @@ body {
   font-size: 17px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 a {
@@ -61,17 +88,18 @@ a {
   inset: 0;
 
   pointer-events: none;
-
   z-index: 9999;
 
   background: radial-gradient(
     500px circle at var(--mouse-x) var(--mouse-y),
-    rgba(56, 189, 248, 0.12) 0%,
-    rgba(56, 189, 248, 0.07) 15%,
-    rgba(56, 189, 248, 0.035) 30%,
-    rgba(56, 189, 248, 0.015) 45%,
+    var(--spotlight-1) 0%,
+    var(--spotlight-2) 15%,
+    var(--spotlight-3) 30%,
+    var(--spotlight-4) 45%,
     transparent 70%
   );
+
+  transition: background 0.4s ease;
 }
 
 @media (hover: none), (pointer: coarse) {
@@ -96,8 +124,8 @@ nav.top {
   -webkit-backdrop-filter: blur(16px);
 
   transition:
-    background-color 0.25s ease,
-    border-color 0.25s ease;
+    background-color 0.4s ease,
+    border-color 0.4s ease;
 }
 
 nav.top .wrap {
@@ -134,11 +162,56 @@ nav.top .wrap {
   padding: 4px;
   cursor: pointer;
 
-  transition: color 0.2s ease;
+  transition:
+    color var(--theme-transition),
+    transform 0.2s ease;
 }
 
 .theme-toggle:hover {
   color: var(--accent);
+}
+
+.theme-toggle:active {
+  transform: scale(0.88);
+}
+
+/* Icon container */
+.theme-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Both icons occupy exactly the same position */
+.theme-icon svg {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity 0.35s ease,
+    transform 0.4s ease;
+}
+
+/* Light mode → show moon */
+.theme-toggle.is-light .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle.is-light .sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+}
+
+/* Dark mode → show sun */
+.theme-toggle.is-dark .sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle.is-dark .moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
 }
 
 .navlinks a {
@@ -224,7 +297,8 @@ nav.top .wrap {
   font-size: 0.85rem;
   transition:
     background-color 0.2s ease,
-    color 0.2s ease padding-left 0.2s ease;
+    color 0.2s,
+    ease padding-left 0.2s ease;
 }
 
 .mobile-menu a:hover,
@@ -704,12 +778,65 @@ a:focus-visible {
   }
 }
 
+/* ==== SMOOTH THEME TRANSITION ==== */
+
+html,
 body,
+nav.top,
+.mobile-menu,
 .theme-toggle,
+.mobile-theme-toggle,
 .project,
-.about-skills {
+.about-skills,
+.back-to-top,
+section,
+footer {
   transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
+}
+
+/* Elements whose colors come from theme variables */
+.brand,
+.navlinks,
+.navlinks a,
+.eyebrow,
+.hero p.lede,
+.project-title,
+.project-year,
+.project-desc,
+.project-stack,
+.project-links a,
+.section-title,
+.skill-group h3,
+.contact-secondary,
+footer {
+  transition: color var(--theme-transition);
+}
+
+.hero-links a,
+.project-links a,
+.contact-secondary a,
+.email-link {
+  transition:
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+/* ==== THEME RIPPLE TRANSITION ==== */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
 }

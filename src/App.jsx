@@ -12,25 +12,35 @@ import CursorSpotlight from "./components/CursorSpotlight";
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem("theme");
-    return savedMode === "dark";
+
+    // Dark mode is the default theme
+    return savedMode !== "light";
   });
 
   useEffect(() => {
-    document.body.classList.toggle("dark", darkMode);
+    // Apply theme to the <html> element
+    document.documentElement.classList.toggle("dark", darkMode);
+
+    // Remember user's choice
     localStorage.setItem("theme", darkMode ? "dark" : "light");
   }, [darkMode]);
 
   return (
-    <div className={darkMode ? "dark" : ""}>
+    <>
       <CursorSpotlight />
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+
+      <Navbar
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
+      />
+
       <Hero />
       <Work />
       <About />
       <Contact />
       <Footer />
       <BackToTop />
-    </div>
+    </>
   );
 }
 
