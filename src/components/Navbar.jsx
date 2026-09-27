@@ -23,43 +23,8 @@ function Navbar({ darkMode, setDarkMode }) {
     };
   }, []);
 
-  const toggleTheme = (event) => {
-    const button = event.currentTarget;
-    const rect = button.getBoundingClientRect();
-
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
-
-    const radius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y),
-    );
-
-    // Create ripple
-    const ripple = document.createElement("div");
-
-    ripple.className = "theme-ripple";
-
-    ripple.style.setProperty("--ripple-x", `${x}px`);
-    ripple.style.setProperty("--ripple-y", `${y}px`);
-    ripple.style.setProperty("--ripple-radius", `${radius}px`);
-
-    // The new theme color
-    ripple.style.background = darkMode ? "#fafaf7" : "#111111";
-
-    document.body.appendChild(ripple);
-
-    // Change theme underneath the ripple
+  const toggleTheme = () => {
     setDarkMode((prev) => !prev);
-
-    // Remove ripple after animation
-    ripple.addEventListener(
-      "animationend",
-      () => {
-        ripple.remove();
-      },
-      { once: true },
-    );
   };
 
   const closeMenu = () => {
