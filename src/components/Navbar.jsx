@@ -26,13 +26,20 @@ function Navbar({ darkMode, setDarkMode }) {
   const toggleTheme = (event) => {
     const button = event.currentTarget;
 
-    const x = button.getBoundingClientRect().left + button.offsetWidth / 2;
+    const rect = button.getBoundingClientRect();
 
-    const y = button.getBoundingClientRect().top + button.offsetHeight / 2;
+    const viewportWidth = window.visualViewport?.width || window.innerWidth;
 
-    const maxX = Math.max(x, window.innerWidth - x);
+    const viewportHeight = window.visualViewport?.height || window.innerHeight;
 
-    const maxY = Math.max(y, window.innerHeight - y);
+    // Button center relative to the viewport
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    // Calculate a radius large enough to cover the entire viewport
+    const maxX = Math.max(x, viewportWidth - x);
+
+    const maxY = Math.max(y, viewportHeight - y);
 
     const radius = Math.hypot(maxX, maxY);
 
@@ -40,7 +47,7 @@ function Navbar({ darkMode, setDarkMode }) {
       setDarkMode((prev) => !prev);
     };
 
-    // Fallback for browsers that don't support View Transitions
+    // Fallback for browsers without View Transitions
     if (!document.startViewTransition) {
       updateTheme();
       return;
@@ -50,14 +57,12 @@ function Navbar({ darkMode, setDarkMode }) {
 
     transition.ready.then(() => {
       document.documentElement.animate(
-        [
-          {
-            clipPath: `circle(0px at ${x}px ${y}px)`,
-          },
-          {
-            clipPath: `circle(${radius}px at ${x}px ${y}px)`,
-          },
-        ],
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${radius}px at ${x}px ${y}px)`,
+          ],
+        },
         {
           duration: 600,
           easing: "ease-in-out",
@@ -149,7 +154,7 @@ function Navbar({ darkMode, setDarkMode }) {
           Resume
         </a>
       </div>
-      
+
       {/* Scroll progress indicator */}
       <div className="scroll-progress">
         <div
