@@ -116,7 +116,7 @@ nav.top {
   z-index: 1000;
 
   /* Semi-transparent background */
-  background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+  background: color-mix(in srgb, var(--bg) 95%, transparent);
 
   /* Glass/floating effect */
   backdrop-filter: blur(16px);
