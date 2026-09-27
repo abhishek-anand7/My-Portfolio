@@ -3,7 +3,7 @@ function Footer() {
     <footer className="footer">
       <div className="wrap footer-inner">
         <p className="footer-text">
-          Designed with Claude, crafted in Visual Studio Code, and built with
+          Designed with Claude Design, crafted in Visual Studio Code, and built with
           React.js &amp; Tailwind CSS. Deployed with Vercel.
         </p>
 
