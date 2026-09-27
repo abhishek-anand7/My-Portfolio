@@ -25,51 +25,41 @@ function Navbar({ darkMode, setDarkMode }) {
 
   const toggleTheme = (event) => {
     const button = event.currentTarget;
-
     const rect = button.getBoundingClientRect();
 
-    const viewportWidth = window.visualViewport?.width || window.innerWidth;
-
-    const viewportHeight = window.visualViewport?.height || window.innerHeight;
-
-    // Button center relative to the viewport
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
-    // Calculate a radius large enough to cover the entire viewport
-    const maxX = Math.max(x, viewportWidth - x);
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    );
 
-    const maxY = Math.max(y, viewportHeight - y);
+    // Create ripple
+    const ripple = document.createElement("div");
 
-    const radius = Math.hypot(maxX, maxY);
+    ripple.className = "theme-ripple";
 
-    const updateTheme = () => {
-      setDarkMode((prev) => !prev);
-    };
+    ripple.style.setProperty("--ripple-x", `${x}px`);
+    ripple.style.setProperty("--ripple-y", `${y}px`);
+    ripple.style.setProperty("--ripple-radius", `${radius}px`);
 
-    // Fallback for browsers without View Transitions
-    if (!document.startViewTransition) {
-      updateTheme();
-      return;
-    }
+    // The new theme color
+    ripple.style.background = darkMode ? "#fafaf7" : "#111111";
 
-    const transition = document.startViewTransition(updateTheme);
+    document.body.appendChild(ripple);
 
-    transition.ready.then(() => {
-      document.documentElement.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${radius}px at ${x}px ${y}px)`,
-          ],
-        },
-        {
-          duration: 600,
-          easing: "ease-in-out",
-          pseudoElement: "::view-transition-new(root)",
-        },
-      );
-    });
+    // Change theme underneath the ripple
+    setDarkMode((prev) => !prev);
+
+    // Remove ripple after animation
+    ripple.addEventListener(
+      "animationend",
+      () => {
+        ripple.remove();
+      },
+      { once: true },
+    );
   };
 
   const closeMenu = () => {

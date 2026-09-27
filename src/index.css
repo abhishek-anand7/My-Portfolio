@@ -890,18 +890,46 @@ footer {
     border-color var(--theme-transition);
 }
 
-/* ==== THEME RIPPLE TRANSITION ==== */
+/* ==== THEME RIPPLE ==== */
 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
+.theme-ripple {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 0;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 99999;
+
+  transform: translate(
+    var(--ripple-x),
+    var(--ripple-y)
+  );
+
+  animation: theme-ripple-expand 600ms ease-in-out forwards;
 }
 
-::view-transition-new(root) {
-  z-index: 9999;
-}
+@keyframes theme-ripple-expand {
+  from {
+    width: 0;
+    height: 0;
+    transform: translate(
+      var(--ripple-x),
+      var(--ripple-y)
+    );
+  }
 
-::view-transition-old(root) {
-  z-index: 1;
+  to {
+    width: calc(var(--ripple-radius) * 2);
+    height: calc(var(--ripple-radius) * 2);
+    transform: translate(
+      calc(var(--ripple-x) - var(--ripple-radius)),
+      calc(var(--ripple-y) - var(--ripple-radius))
+    );
+  }
 }
