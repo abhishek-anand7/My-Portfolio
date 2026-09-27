@@ -665,12 +665,39 @@ a.email-link {
 
 /* ==== FOOTER ==== */
 
-footer {
-  padding: 28px 0 56px;
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0 32px;
+  margin-top: 80px;
+}
 
-  font-family: var(--mono);
-  font-size: 0.78rem;
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-text,
+.footer-copy {
+  margin: 0;
   color: var(--muted);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.6;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.footer-text {
+  max-width: 580px;
+}
+
+/* Subtle accent on hover */
+.footer-text:hover,
+.footer-copy:hover {
+  color: var(--accent);
 }
 
 /* ==== BACK TO TOP BUTTON ==== */
@@ -780,6 +807,21 @@ a:focus-visible {
     bottom: 20px;
     width: 45px;
     height: 45px;
+  }
+
+  .footer {
+    margin-top: 64px;
+    padding: 24px 0 28px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .footer-text {
+    max-width: 100%;
   }
 }
 
