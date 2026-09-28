@@ -1,3 +1,5 @@
+import "./Work.css";
+
 const projects = [
   {
     title: "Job Application Tracker",

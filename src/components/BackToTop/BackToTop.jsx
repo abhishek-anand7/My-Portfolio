@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
+import "./BackToTop.css"
 
 function BackToTop() {
   const [showButton, setShowButton] = useState(false);

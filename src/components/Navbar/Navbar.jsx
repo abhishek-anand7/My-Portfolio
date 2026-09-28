@@ -1,5 +1,8 @@
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import "./Navbar.css";
+import "./ThemeToggle.css";
+import "./ScrollProgress.css";
 
 function Navbar({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);

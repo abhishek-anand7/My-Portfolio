@@ -1,0 +1,30 @@
+.cursor-spotlight {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 9999;
+
+  background: radial-gradient(
+    500px circle at var(--mouse-x) var(--mouse-y),
+    var(--spotlight-1) 0%,
+    var(--spotlight-2) 15%,
+    var(--spotlight-3) 30%,
+    var(--spotlight-4) 45%,
+    transparent 70%
+  );
+
+  transition: background 0.4s ease;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-spotlight {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-spotlight {
+    display: none;
+  }
+}

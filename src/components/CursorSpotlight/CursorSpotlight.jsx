@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "./CursorSpotlight.css";
 
 function CursorSpotlight() {
   useEffect(() => {

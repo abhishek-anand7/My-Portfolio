@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  --bg: #fafaf7;
+  --bg-raised: #f2eee7;
+  --ink: #1c1b1a;
+  --muted: #79766e;
+  --accent: #b0472c;
+  --line: #dedad2;
+
+  --theme-transition: 700ms;
+
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "IBM Plex Mono", "SF Mono", Menlo, monospace;
+
+  --mouse-x: 50vw;
+  --mouse-y: 50vh;
+
+  /* Cursor spotlight */
+  --spotlight-1: rgba(176, 71, 44, 0.1);
+  --spotlight-2: rgba(176, 71, 44, 0.055);
+  --spotlight-3: rgba(176, 71, 44, 0.025);
+  --spotlight-4: rgba(176, 71, 44, 0.012);
+}
+
+.dark {
+  --bg: #111111;
+  --bg-raised: #1a1a1a;
+  --ink: #f2f0eb;
+  --muted: #a5a29b;
+  --accent: #e06a45;
+  --line: #333333;
+
+  /* Cursor spotlight */
+  --spotlight-1: rgba(56, 189, 248, 0.12);
+  --spotlight-2: rgba(56, 189, 248, 0.07);
+  --spotlight-3: rgba(56, 189, 248, 0.035);
+  --spotlight-4: rgba(56, 189, 248, 0.015);
+}

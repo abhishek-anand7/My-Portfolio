@@ -1,4 +1,5 @@
-import ProfileImage from "../assets/ProfileImage.png";
+import ProfileImage from "../../assets/ProfileImage.png";
+import "./Hero.css";
 
 function Hero() {
   return (

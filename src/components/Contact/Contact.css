@@ -1,0 +1,62 @@
+section.contact {
+  padding-bottom: 40px;
+}
+
+h2.contact-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin: 0 0 24px;
+}
+
+a.email-link {
+  display: inline-block;
+
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent);
+
+  padding-bottom: 3px;
+  margin-bottom: 28px;
+}
+
+.contact-secondary {
+  display: flex;
+  gap: 24px;
+
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  color: var(--muted);
+
+  flex-wrap: wrap;
+}
+
+.contact-secondary a {
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.2s ease;
+}
+
+.contact-secondary a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.contact-secondary a:hover {
+  color: var(--accent);
+}
+
+.contact-secondary a:hover::after {
+  transform: scaleX(1);
+}
