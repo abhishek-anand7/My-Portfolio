@@ -33,11 +33,22 @@
   border-color: var(--accent);
 }
 
+/* Tablets and mobiles */
 @media (max-width: 620px) {
   .back-to-top {
     right: 20px;
     bottom: 20px;
     width: 45px;
     height: 45px;
+  }
+}
+
+/* Laptop / desktop */
+@media (min-width: 1024px) {
+  .back-to-top {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
   }
 }
