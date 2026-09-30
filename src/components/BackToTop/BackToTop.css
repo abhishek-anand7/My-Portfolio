@@ -48,7 +48,5 @@
   .back-to-top {
     right: auto;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: 24px;
   }
 }
